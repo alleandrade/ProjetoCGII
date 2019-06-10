@@ -5,93 +5,87 @@
  */
 package entidades;
 
-import com.jme3.app.SimpleApplication;
-import com.jme3.material.Material;
-import com.jme3.math.ColorRGBA;
-import com.jme3.scene.Geometry;
-import com.jme3.scene.Node;
-import com.jme3.scene.Spatial;
-import com.jme3.scene.shape.Box;
-
 /**
  *
- * @author Alex
+ * @author sawako
  */
-public class Car extends SimpleApplication {
-    private Box box;
-    private Spatial spatial;
+public class Car {
+    private float x;
+    private float y;
+    private float z;
+    private String carModel;
+    private boolean isAlive = true;
+    private String name;
+    private float velocity;
+    
+    public Car() {
+        
+    }
 
-    public void createCar(Node nodeCarBody, Node nodeCarWheels ) {
-        Box b = new Box(2, 1.5f, 1);
-        Geometry geom = new Geometry("Box", b);
+    public Car(float x, float y, float z, String carModel, String name, float velocity) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.name = name;
+        this.velocity = velocity;
+        
+        this.carModel = carModel;
+    }
 
-        //Corpo carro
-        Material mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
-        mat.setColor("Color", ColorRGBA.Blue);
-        geom.setMaterial(mat);
-        nodeCarBody.attachChild(geom);
+    public float getX() {
+        return x;
+    }
 
-        b = new Box(1.2f, 1, 1);
-        geom = new Geometry("Box", b);
+    public void setX(float x) {
+        this.x = x;
+    }
 
-        //Laterais carro
-        mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
-        mat.setColor("Color", ColorRGBA.Green);
-        geom.move(-3.2f, -0.5f, 0);
-        geom.setMaterial(mat);
-        nodeCarBody.attachChild(geom);
+    public float getY() {
+        return y;
+    }
 
-        b = new Box(1.2f, 1, 1);
-        geom = new Geometry("Box", b);
+    public void setY(float y) {
+        this.y = y;
+    }
 
-        //Laterais carro
-        mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
-        mat.setColor("Color", ColorRGBA.Green);
-        geom.move(3.2f, -0.5f, 0);
-        geom.setMaterial(mat);
-        nodeCarBody.attachChild(geom);
+    public float getZ() {
+        return z;
+    }
 
-        b = new Box(0.6f, 0.5f, 0.2f);
-        geom = new Geometry("Roda1", b);
+    public void setZ(float z) {
+        this.z = z;
+    }
 
-        //Roda
-        mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
-        mat.setColor("Color", ColorRGBA.White);
-        geom.move(3.2f, -1.5f, 1);
-        geom.setMaterial(mat);
-        nodeCarWheels.attachChild(geom);
+    public String getCarModel() {
+        return carModel;
+    }
 
-        b = new Box(0.6f, 0.5f, 0.2f);
-        geom = new Geometry("Roda2", b);
+    public void setCarModel(String carModel) {
+        this.carModel = carModel;
+    }
 
-        //Roda
-        mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
-        mat.setColor("Color", ColorRGBA.White);
-        geom.move(3.2f, -1.5f, -1);
-        geom.setMaterial(mat);
-        nodeCarWheels.attachChild(geom);
+    public boolean isIsAlive() {
+        return isAlive;
+    }
 
-        b = new Box(0.6f, 0.5f, 0.2f);
-        geom = new Geometry("Roda3", b);
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
 
-        mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
-        mat.setColor("Color", ColorRGBA.White);
-        geom.move(-3.2f, -1.5f, -1);
-        geom.setMaterial(mat);
-        nodeCarWheels.attachChild(geom);
+    public String getName() {
+        return name;
+    }
 
-        b = new Box(0.6f, 0.5f, 0.2f);
-        geom = new Geometry("Roda4", b);
+    public void setName(String name) {
+        this.name = name;
+    }
 
-        mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
-        mat.setColor("Color", ColorRGBA.White);
-        geom.move(-3.2f, -1.5f, 1);
-        geom.setMaterial(mat);
-        nodeCarWheels.attachChild(geom);    }
+    public float getVelocity() {
+        return velocity;
+    }
 
-    @Override
-    public void simpleInitApp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setVelocity(float velocity) {
+        this.velocity = velocity;
     }
     
 }
